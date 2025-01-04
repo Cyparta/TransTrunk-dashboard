@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    --primary: 24, 96%, 22%, 1;
+    --primary-foreground: 26 83.3% 14.1%;
+    --secondary: 15, 100%, 98%, 1;
+    --secondary-foreground: 24, 28%, 73%, 1;
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 20 14.3% 4.1%;
+    --radius: 0.5rem;
+
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+    --primary: 47.9 95.8% 53.1%;
+    --primary-foreground: 26 83.3% 14.1%;
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 60 9.1% 97.8%;
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 60 9.1% 97.8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 35.5 91.7% 32.9%;
+  }
+}
+
+/* PopoverContent */
+.PopoverContent {
+  width: var(--radix-popover-trigger-width);
+  max-height: var(--radix-popover-content-available-height);
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .Transition {
+    @apply transition-all duration-200 ease-in-out;
+  }
+
+  .active-nav-link {
+    @apply text-primary font-medium;
+  }
+
+  .header-title {
+    @apply text-4xl font-medium leading-6 text-center;
+
+  }
+
+  .main-title {
+    @apply text-[15px] md:text-xl font-medium leading-normal text-center;
+  }
+
+  .row-box {
+    @apply flex flex-row justify-center items-center
+  }
+
+  .column-box {
+    @apply flex flex-col justify-center items-center
+  }
+
+  .main-button {
+    @apply bg-primary h-[38px] rounded-[10px] font-medium text-[#1D1D1D] text-[14px];
+  }
+
+  .gray-text {
+    @apply text-12 font-normal text-[#8C8C8C]
+  }
+
+  .hover_scale_95 {
+    @apply hover:scale-95 transition-all
+  }
+
+  .hover_scale_105 {
+    @apply hover:scale-105 transition-all
+  }
+
+  .canceled {
+    @apply text-[#B42318] bg-[#FEF3F2] p-2 rounded-md text-center;
+  }
+
+  .completed {
+    @apply text-[#027A48] bg-[#ECFDF3] p-2 rounded-md text-center;
+  }
+}
+
+
+/*
+  -------------- Custom Side Bar  ------------------------
+*/
+
+
+* {
+  scrollbar-color: #467DB2 !important;
+  scrollbar-width: 6px;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #467DB2;
+  border-radius: 5px;
+}
+
+*::-o-scrollbar {
+  width: 6px;
+}
+
+*::-o-scrollbar-track {
+  background: transparent;
+}
+
+*::-o-scrollbar-thumb {
+  background-color: #FFFFFF;
+  border-radius: 5px;
+}
+
+
+
+/*
+  -------------------- delete prevent default style for input number ----------------------------------
+*/
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  /* Firefox */
+}
+
+input:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: hsla(15, 100%, 98%, 1) !important;
+  color: fieldtext !important;
+}
+
+/*
+  -------------------- radio input ----------------------------------
+*/
+input[type="radio"].custom-radio {
+  @apply appearance-none  border-secondary-foreground rounded-full w-1 h-1 cursor-pointer p-1;
+}
+
+input[type="radio"].custom-radio:checked {
+  @apply bg-secondary-foreground border-transparent ;
+}
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(24%) sepia(100%) saturate(500%) hue-rotate(0deg) brightness(90%) contrast(100%);
+  opacity: 1; /* Ensures full visibility of the icon */
+}
+
+input[type="date"]::placeholder {
+  color: #999; /* Set your desired placeholder color */
+  opacity: 1; /* Ensure the color is applied without opacity */
+}
+input[type="date"]::-webkit-input-placeholder {
+  color: #999;
+}
+.combobox-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.combobox-item:hover {
+  background-color: #f0f0f0;
+}
+
+.combobox-item.selected {
+  background-color: #d0d0d0;
+}
+
+canvas{
+  width: 100%;
+  height: 100%;
+}
+.PhoneInputInput{
+  border:1px solid #d6d4d4;
+  border-radius: 70px;
+  padding: 7px;
+  background-color: transparent;
+  outline: none;
+}
