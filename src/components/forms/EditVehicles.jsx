@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 import InputDemo from "../helper/Input-demo";
 import ImageUploader from "../helper/ImageUploader";
-import LocationPicker from "../helper/Map";
+import dynamic from "next/dynamic";
+const LocationPicker = dynamic(() => import('@/components/helper/Map'), { ssr: false });
 import FormSubmittingButton from "./FormSubmittingButton";
-import Image from "next/image";
-import { CompareValues, CreateFormData } from "@/lib/utils";
+import { CompareValues} from "@/lib/utils";
 import { handleEditVehiclesRequest } from "@/lib/actions/vechilesAction";
 import { toast } from "sonner";
 import DeleteRow from "../tables/DeleteRow";

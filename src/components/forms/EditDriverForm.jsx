@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import InputDemo from "../helper/Input-demo";
 import ImageUploader from "../helper/ImageUploader";
 import FormSubmittingButton from "./FormSubmittingButton";
-import Image from "next/image";
 import { CompareValues } from "@/lib/utils";
 import { toast } from "sonner";
 import DeleteRow from "../tables/DeleteRow";

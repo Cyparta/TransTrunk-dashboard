@@ -43,7 +43,7 @@ async function GetDataInServerSide(
   let headers = Authorization
     ? {
         "Content-Type": "application/json",
-        Authorization: `Bearer  ${getCookie("token", { cookies })}`
+        Authorization: `Bearer  ${cookies().get("token")?.value || ""}`
       }
     : {
         "Content-Type": "application/json",

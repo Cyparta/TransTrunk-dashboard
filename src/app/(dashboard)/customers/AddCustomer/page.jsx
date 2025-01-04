@@ -7,7 +7,8 @@ import { useFormState } from "react-dom";
 import { toast } from "sonner";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import LocationPicker from "@/components/helper/Map";
+import dynamic from "next/dynamic";
+const LocationPicker = dynamic(() => import('@/components/helper/Map'), { ssr: false });
 import { handleAddCustomer } from "@/lib/actions/CustomerAction";
 
 export default function AddCustomer() {

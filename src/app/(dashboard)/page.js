@@ -1,10 +1,11 @@
+'use server'
+// export const dynamic = "force-dynamic";
 import { GetDataInServerSide } from "@/lib/action";
 import NoResultFound from "@/components/helper/NoResultFound";
-import { getCookie } from "cookies-next";
 import BarChart from "@/components/helper/BarChart";
 import DonutChart from "@/components/helper/DonutsChart";
 
-export default async function HomePage(params) {
+export default async function HomePage() {
   try {
     const Home_Data = await GetDataInServerSide("/logistics/statistics/", {
       cache: "no-store",
@@ -13,8 +14,7 @@ export default async function HomePage(params) {
     if (!Home_Data) {
       throw new Error("Invalid data structure");
     }
-    const user = getCookie("user");
-    console.log(user);
+   
     return (
       <main className="flex flex-col  w-full">
         <p className="font-bold text-lg">Welcome back, </p>
